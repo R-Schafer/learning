@@ -1,0 +1,119 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+To-Do
+{% endblock %}
+
+{% block body %}
+<div class="container-sm">
+
+  <!-- Heading -->
+  <div class="col-md-12 p-2">
+    <h1 class="text-center m-5">TO-DO LIST</h1>
+  </div>
+
+  <div class="row justify-content-start p-1">
+
+    <!-- Left container -->
+    <div class="col-3 p-1">
+
+      <!-- Toggle Buttons -->
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="toggle1" checked>
+        <label class="form-check-label" for="toggle1">All Items</label>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="toggle2" checked>
+        <label class="form-check-label" for="toggle2">Active Items</label>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="toggle3" checked>
+        <label class="form-check-label" for="toggle3">Completed Items</label>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="toggle4" checked>
+        <label class="form-check-label" for="toggle4">Oldest to Newest</label>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="toggle5" checked>
+        <label class="form-check-label" for="toggle5">Due Date Approaching</label>
+      </div>
+    </div>
+    
+
+    <!-- Right container -->
+    <div class="col-6">
+
+      <!-- Adding To-Dos Box -->
+      <div class="input-group mb-3">
+        <div class="input-group">
+          <input type="text" class="border border-dark form-control rounded-end" placeholder="Add Task">
+          <button type="button" class="rounded btn btn-link link-danger"><i class="bi bi-calendar3"></i></button>
+          <button type="button" class="rounded btn btn-link link-dark"><i class="bi bi-plus-circle-fill"></i></button>
+        </div>
+      </div>
+
+
+      <!-- Items in TO-Do List -->
+      <div class="d-flex flex-column">
+
+        <!-- Crossed Off -->
+        <div class="d-flex justify-content-between">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Todo1" checked>
+            <label class="form-check-label text-decoration-line-through" for="Todo1">Item on List</label>
+          </div>
+          <!-- Edit and Trash Icon -->
+          <div>
+            <button type="button" class="btn btn-link"><i class="bi bi-pencil-fill"></i></button>
+            <button type="button" class="btn btn-link link-dark"><i class="bi bi-trash-fill"></i></button>
+          </div>
+        </div>
+
+        <!-- Normal Item -->
+        <div class="d-flex justify-content-between">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Todo2">
+            <label class="form-check-label" for="Todo2">Item on List</label>
+          </div>
+          <!-- Edit and Trash Icon -->
+          <div>
+            <button type="button" class="btn btn-link"><i class="bi bi-pencil-fill"></i></button>
+            <button type="button" class="btn btn-link link-dark"><i class="bi bi-trash-fill"></i></button>
+          </div>
+        </div>
+
+        <!-- If a due date is approaching -->
+        <div class="d-flex justify-content-between">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="Todo3">
+            <label class="form-check-label" for="Todo3">Item on List</label>
+          </div>
+          <!-- Edit, Trash, and Timer Icon -->
+          <div>
+            <button type="button" class="btn btn-link link-danger"><i class="bi bi-hourglass-split"></i></button>
+            <button type="button" class="btn btn-link"><i class="bi bi-pencil-fill"></i></button>
+            <button type="button" class="btn btn-link link-dark"><i class="bi bi-trash-fill"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+<!-- Disable Toggle Button -->
+<!-- <div class="form-check form-switch">
+<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled>
+<label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>
+</div> -->
+
+<!-- Disable Check Box -->
+<!-- <div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+<label class="form-check-label" for="defaultCheck2">
+Disabled checkbox
+</label>
+</div> -->
