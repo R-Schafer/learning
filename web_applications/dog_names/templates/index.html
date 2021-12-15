@@ -6,8 +6,15 @@ Dog Names
 
 {% block body %}
 
-<h1>Dog Names</h1>
+    <h1>Dog Names</h1>
 
-<input type="text"/>
+    <!-- <form action="/greet" method="get">-->
+        <!-- <input name="name" type="text">
+        <input type="submit"> -->
+
+    <form method="post">
+        <input autocomplete= "off" name="name" type="text">
+        <input type="submit">
+    </form>
 
 {% endblock %}
