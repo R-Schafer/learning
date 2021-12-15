@@ -46,11 +46,11 @@ To-Do
 
       <!-- Adding To-Dos Box -->
       <div class="input-group mb-3">
-        <div class="input-group">
-          <input type="text" class="border border-dark form-control rounded-end" placeholder="Add Task">
+        <form class="input-group" method="post" autocomplete="off">
+          <input type="text" class="border border-dark form-control rounded-end" placeholder="Add Task" name="new_todo">
           <button type="button" class="rounded btn btn-link link-danger"><i class="bi bi-calendar3"></i></button>
-          <button type="button" class="rounded btn btn-link link-dark"><i class="bi bi-plus-circle-fill"></i></button>
-        </div>
+          <button type="submit" class="rounded btn btn-link link-dark"><i class="bi bi-plus-circle-fill"></i></button>
+        </form>
       </div>
 
 
