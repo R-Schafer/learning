@@ -6,6 +6,8 @@ DOG_NAMES = []
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        DOG_NAMES.append(request.form['dog_name'])
+        dog_name = request.form['dog_name']
+        if dog_name.strip() != "":
+            DOG_NAMES.append(dog_name)
 
     return render_template('index.html', dogs=DOG_NAMES)
