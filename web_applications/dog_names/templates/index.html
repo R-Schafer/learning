@@ -8,13 +8,14 @@ Dog Names
 
     <h1>Dog Names</h1>
 
-    <!-- <form action="/greet" method="get">-->
-        <!-- <input name="name" type="text">
-        <input type="submit"> -->
-
     <form method="post">
-        <input autocomplete= "off" name="name" type="text">
+        <input autocomplete="off" autofocus name="dog_name" type="text">
         <input type="submit">
     </form>
 
+    <ul>
+        {% for dog in dogs %}
+            <li>{{ dog }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
