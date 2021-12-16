@@ -9,13 +9,17 @@ Dog Names
     <h1>Dog Names</h1>
 
     <form method="post">
-        <input autocomplete="off" autofocus name="dog_name" type="text">
+        <input autocomplete="off" autofocus name="add_name" type="text">
         <input type="submit">
     </form>
 
     <ul>
         {% for dog in dogs %}
-            <li>{{ dog }}</li>
+            <li>
+                <form method="post">
+                    <button name="delete_name" value="{{ dog }}" type="submit">X</button> {{ dog }} 
+                </form>
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
