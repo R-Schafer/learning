@@ -1,5 +1,10 @@
 from flask import Flask, redirect, render_template, request
 
+class Dog:
+    def __init__(self, name):
+        self.name = name
+        self.count = 1
+
 app = Flask(__name__)
 DOG_NAMES = []
 
@@ -10,10 +15,10 @@ def index():
             dog_name = request.form['add_name'].strip()
             dog_position = index_of_dog_name(dog_name)
             if dog_name != "" and dog_position == None:
-                DOG_NAMES.append({"name": dog_name, "count": 1})
+                DOG_NAMES.append(Dog(dog_name))
             elif dog_position != None:
                 dog = DOG_NAMES[dog_position]
-                dog["count"] += 1        
+                dog.count += 1        
 
         elif "delete_name" in request.form:
             dog_name = request.form['delete_name']
@@ -39,7 +44,7 @@ def index():
 def index_of_dog_name(dog_name):
     for i in range(len(DOG_NAMES)):
         dog = DOG_NAMES[i]
-        if dog["name"] == dog_name:
+        if dog.name == dog_name:
             return i
 
     return None

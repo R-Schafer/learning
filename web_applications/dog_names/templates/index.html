@@ -13,22 +13,29 @@ Dog Names
         <input type="submit">
     </form>
 
-    <ol>
+    <ul style="list-style: none;">
         {% for i in range(dogs|length) %}
             {% set dog = dogs[i] %}
             <li>
                 <form method="post">
-                    {{ dog["name"] }}, {{ dog["count"] }} <button name="delete_name" value="{{ dog['name'] }}" type="submit">DELETE</button>
+                    <button name="delete_name" value="{{ dog.name }}" type="submit">❌</button>
                             
                     {% if i > 0 %} 
-                        <button name="move_up" value="{{ dog['name'] }}" type="submit"> UP </button>
+                        <button name="move_up" value="{{ dog.name }}" type="submit">🔼</button>
+                    {% else %}
+                        <button name="move_up" value="{{ dog.name }}" type="submit" disabled>🔼</button>
                     {% endif %}
 
                     {% if i < (dogs | length - 1) %}
-                        <button name="move_down" value="{{ dog['name'] }}" type="submit"> DOWN </button>
+                        <button name="move_down" value="{{ dog.name }}" type="submit" >🔽</button>
+                    {% else %}
+                        <button name="move_down" value="{{ dog.name }}" type="submit" disabled>🔽</button>
                     {% endif %}
+
+                    {{ dog.name }}, {{ dog.count }}
+
                 </form>
             </li>
         {% endfor %}
-    </ol>
+    </ul>
 {% endblock %}
