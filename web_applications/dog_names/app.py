@@ -12,7 +12,7 @@ DOG_NAMES = []
 def index():
     if request.method == "POST":
         if "add_name" in request.form:
-            dog_name = request.form['add_name'].strip()
+            dog_name = request.form['add_name'].strip().title()
             dog_position = index_of_dog_name(dog_name)
             if dog_name != "" and dog_position == None:
                 DOG_NAMES.append(Dog(dog_name))
