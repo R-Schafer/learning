@@ -1,5 +1,10 @@
 from flask import Flask, redirect, render_template, request
 
+class Dog:
+    def __init__(self, name):
+        self.name = name
+        self.count = 1
+
 app = Flask(__name__)
 DOG_NAMES = []
 
@@ -35,10 +40,6 @@ def index():
 
     return render_template('index.html', dogs=DOG_NAMES)
 
-class Dog:
-    def __init__(self, name):
-        self.name = name
-        self.count = 1
 
 # function to help find the position of each dictionary
 def index_of_dog_name(dog_name):
@@ -52,14 +53,13 @@ def index_of_dog_name(dog_name):
 
 # Dog Search Page
 
-@app.route("/search", methods=["GET", "POST"])
+@app.route("/search")
 def search():
     search_results = [] 
-    if request.method == "POST":
-        if 'search_dog' in request.form:
-            for dog in DOG_NAMES:
-                if request.form['search_dog'].lower() in dog.name.lower():
-                    search_results.append(dog)
+    if 'search_dog' in request.args:
+        for dog in DOG_NAMES:
+            if request.args['search_dog'].lower() in dog.name.lower():
+                search_results.append(dog)
     else:
         search_results = DOG_NAMES
 
